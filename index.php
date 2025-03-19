@@ -7,8 +7,8 @@
     <table border="1" align="center">
         <tr>
             <th>Student ID</th>
-            <th>Name</th>
-            <th>Course Code</th>
+            <th>Student Name</th>
+            <th>Course</th>
         </tr>
         <tr>
             <td>500234966</td>
