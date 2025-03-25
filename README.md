@@ -45,11 +45,15 @@ git push origin main
 ### 4. Verify Deployment
 
 Check deployment status:
+
 GitHub repo → Actions tab
+
 Azure Portal → Deployment Center
 
 Access live app:
+
 Copy
+
 https://<your-app-name>.azurewebsites.net
 
 
@@ -57,13 +61,8 @@ https://<your-app-name>.azurewebsites.net
 ###  How It Works
 
 Automatic deployments on every git push
+
 GitHub Actions workflow handles deployment
+
 Typical deployment time: 2-3 minutes
 
-
-### Troubleshooting
-
-**Issue**                   **Solution**
-Deployment fails	       Check GitHub Actions logs
-Changes not visible	     Verify workflow completion, clear cache
-Need redeploy	           Push empty commit: git commit --allow-empty -m "Redeploy"
