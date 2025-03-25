@@ -40,7 +40,7 @@ echo "<?php echo 'Hello Azure!'; ?>" > index.php
 git add .
 git commit -m "Initial commit"
 git push origin main
-
+```
 
 ### 4. Verify Deployment
 
