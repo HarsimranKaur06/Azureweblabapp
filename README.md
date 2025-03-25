@@ -44,11 +44,11 @@ git push origin main
 
 ### 4. Verify Deployment
 
-# Check deployment status:
+Check deployment status:
 GitHub repo → Actions tab
 Azure Portal → Deployment Center
 
-# Access live app:
+Access live app:
 Copy
 https://<your-app-name>.azurewebsites.net
 
