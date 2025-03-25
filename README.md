@@ -1,111 +1,69 @@
-Azure PHP Web App with GitHub Continuous Deployment
-This project demonstrates how to deploy a PHP application to Azure App Service with automatic deployments via GitHub integration.
+# Azure PHP Web App with GitHub Continuous Deployment
 
-Quick Start Guide
-1. Create Azure PHP Web App
-Go to Azure Portal
+This project demonstrates automatic deployment of a PHP application to Azure App Service using GitHub integration.
 
-Create a new Web App resource
+## 🚀 Quick Deployment Guide
 
-Configure with:
+### 1. Create Azure Web App
+1. Go to [Azure Portal](https://portal.azure.com/)
+2. Create new **Web App** resource
+3. Configure:
+   - **Runtime stack**: PHP (latest version)
+   - **OS**: Linux (recommended)
+   - **Region**: Nearest to your users
+   - **Pricing tier**: Free (F1) for testing
 
-Runtime stack: PHP (latest stable version)
-
-Operating System: Linux (recommended)
-
-Region: Choose nearest to your users
-
-App Service Plan: Standard (S1)
-
-2. Set Up Continuous Deployment from GitHub
-In your Azure Web App:
-
-Go to Deployment Center
-
-Select GitHub as source
-
-Authorize your GitHub account
-
-Choose:
-
-Organization: Your GitHub account/organization
-
-Repository: Your PHP app repository (create new if needed)
-
-Branch: main (or your preferred branch)
-
-Click Save
+### 2. Set Up GitHub Deployment
+1. In your Azure Web App:
+   - Navigate to **Deployment Center**
+   - Select **GitHub** as source
+   - Authorize your GitHub account
+   - Configure:
+     - Repository: Your PHP app repo (create new if needed)
+     - Branch: `main`
+   - Click **Save**
 
 Azure will automatically:
+- Create GitHub Actions workflow (`.github/workflows/main_<app-name>.yml`)
+- Configure deployment secrets
 
-Create a GitHub Actions workflow file (.github/workflows/main_<your-app-name>.yml)
-
-Set up deployment secrets in your repository
-
-3. Connect Local Repository
-Clone your GitHub repository locally:
-
-bash
-Copy
+### 3. Connect Local Code
+```bash
+# Clone your repository
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-Add your PHP application files:
 
-bash
-Copy
-# Example for a simple PHP app
+# Add PHP files
 echo "<?php echo 'Hello Azure!'; ?>" > index.php
-Commit and push your code:
 
-bash
-Copy
+# Commit and push
 git add .
-git commit -m "Initial PHP application"
+git commit -m "Initial commit"
 git push origin main
-4. Verify Deployment
-Check GitHub Actions:
 
-Go to your repository > Actions tab
 
-You should see a running workflow named "Azure Web App"
+### 4. Verify Deployment
 
-Access your live application:
+# Check deployment status:
+GitHub repo → Actions tab
+Azure Portal → Deployment Center
 
-URL: https://<your-app-name>.azurewebsites.net
-
-Changes should be live within 2-3 minutes after push
-
-How It Works
-The automatically generated workflow file:
-
-Triggers on pushes to the main branch
-
-Deploys directly to your Azure Web App
-
-Uses the publish profile credentials stored in GitHub secrets
-
-Local Development Tips
-Run a local PHP server:
-
-bash
+# Access live app:
 Copy
-php -S localhost:8000
-Access at http://localhost:8000
+https://<your-app-name>.azurewebsites.net
 
-Troubleshooting
-Deployment fails: Check the workflow logs in GitHub Actions
 
-Changes not appearing:
 
-Verify the workflow completed successfully
+###  How It Works
 
-Check Azure Web App > Deployment Center for errors
+Automatic deployments on every git push
+GitHub Actions workflow handles deployment
+Typical deployment time: 2-3 minutes
 
-Clear browser cache when testing changes
 
-Need to restart deployment: Push an empty commit:
+### Troubleshooting
 
-bash
-Copy
-git commit --allow-empty -m "Trigger deployment"
-git push
+**Issue**                   **Solution**
+Deployment fails	       Check GitHub Actions logs
+Changes not visible	     Verify workflow completion, clear cache
+Need redeploy	           Push empty commit: git commit --allow-empty -m "Redeploy"
